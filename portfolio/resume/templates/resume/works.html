@@ -1,0 +1,26 @@
+{% extends 'resume/base_detail.html' %}
+{% load static %}
+{% block new_styles %}
+    <link rel="stylesheet" href="{% static 'resume/works.css' %}">
+{% endblock %}
+{% block title_col %}Мои работы{% endblock %}
+{% block text_col %}
+    Чтобы перейти на страницу проекта (приложения), просто нажмите на интересующую Вас картинку.
+{% endblock %}
+{% block other_section %}
+    <div class="gallery">
+        <a class="gallery__item prices" href="">
+            <div class="gallery__item-inner"></div>
+        </a>
+        <a class="gallery__item onliner" href="">
+            <div class="gallery__item-inner"></div>
+        </a>
+        <a class="gallery__item exchange-rates" href="">
+            <div class="gallery__item-inner"></div>
+        </a>
+        <a class="gallery__item portfolio" href="">
+            <div class="gallery__item-inner"></div>
+        </a>
+    </div>
+    <div class="fake-block"></div>
+{% endblock %}

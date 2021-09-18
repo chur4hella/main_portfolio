@@ -1,0 +1,78 @@
+.section{
+    display: flex;
+    position: relative;
+    padding: 90px 30px 100px;
+    overflow: hidden;
+}
+.section-col{
+    width: 50%;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+.section-col__title{
+    position: relative;
+    font-size: 60px;
+    color: #08fdd8;
+}
+.section-col__title::before{
+    content: '<h2>';
+}
+.section-col__title::after{
+    content: '</h2>';
+}
+.section-col__title::before,
+.section-col__title::after,
+.section-col__text::after,
+.section-col__text::before{
+    left: -10px;
+}
+.section-col__title::after,
+.section-col__text::after{
+    bottom: -30px;
+}
+.section-col__title::before,
+.section-col__text::before{
+    top: -30px;
+}
+.section-col__text{
+    position: relative;
+    font-size: 16px;
+}
+.section-col__text::before{
+    content: '<p>';
+}
+.section-col__text::after{
+    content: '</p>';
+}
+.tags{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+@media only screen and (max-width: 900px){
+    .section{
+        flex-direction: column;
+    }
+    .section-col{
+        width: 100%;
+    }
+    .section-col:first-child{
+        padding-bottom: 40px;
+    }
+    .tags{
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .section-col{
+        padding: 0;
+    }
+    .section-col__title{
+        font-size: 36px;
+    }
+    .section-col__text{
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+}

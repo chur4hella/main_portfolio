@@ -1,0 +1,21 @@
+{% extends 'resume/base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'resume/base_detail.css' %}">
+    {% block new_styles %}{% endblock %}
+{% endblock %}
+{% block content %}
+    <section class="section">
+        <div class="section-col">
+            <h2 class="section-col__title">{% block title_col %}{% endblock %}</h2>
+            <p class="section-col__text">
+                {% block text_col %}{% endblock %}
+            </p>
+        {% block other_element_col %}{% endblock %}
+        </div>
+        <div class="section-col {% block class_right_col %}{% endblock %}">
+        {% block element_right_col %}{% endblock %}
+    </div>
+    </section>
+    {% block other_section %}{% endblock %}
+{% endblock %}

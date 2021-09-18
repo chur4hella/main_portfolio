@@ -1,0 +1,46 @@
+{% extends 'resume/base_detail.html' %}
+{% load static %}
+{% block new_styles %}
+    <link rel="stylesheet" href="{% static 'resume/contact.css' %}">
+{% endblock %}
+{% block title %}Контакты{% endblock %}
+{% block title_col %}Мои контакты{% endblock %}
+{% block text_col %}
+    Вот <a class="link" href="">ссылка</a> на мое резюме на сайте rabota.by. Однако, если у вас есть другой вопрос,
+    не стеснятесь использовать эту форму.
+{% endblock %}
+{% block other_element_col %}
+<div class="form-wrapper">
+                <form class="form" action="{% url 'resume:index' %}" method="post">
+                <div class="form__field-wrapper form__field-wrapper_half form__field-wrapper_half-left">
+                    <input class="form__field" placeholder="Имя" type="text" name="name" autocomplete="off">
+                    <label class="form__label"></label>
+                </div>
+                <div class="form__field-wrapper form__field-wrapper_half">
+                    <input class="form__field form__field_required" placeholder="Email" type="email" name="email" autocomplete="off">
+                    <label class="form__label"></label>
+                </div>
+                <div class="form__field-wrapper">
+                    <input class="form__field" placeholder="Тема" type="text" name="subject" autocomplete="off">
+                    <label class="form__label"></label>
+                </div>
+                <div class="form__field-wrapper">
+                    <textarea class="form__field form__field_required" placeholder="Сообщение" name="message" rows="7"></textarea>
+                    <label class="form__label"></label>
+                </div>
+                <a class="button" href="">Отправить</a>
+            </form>
+            </div>
+{% endblock %}
+{% block class_right_col %}
+    contact-info
+{% endblock %}
+{% block element_right_col %}
+    <div class="contact-info__address">
+        Борисевич Дмитрий<br>г. Минск<br><br>
+        <div class="contact-info__email">
+            <span class="contact-info__sign">@</span>borisevich.d.p@gmail.com
+        </div>
+    </div>
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9339f8311747889aa2aa089cf18bd9f239256bbc19ce0c5792293d70ebc15e95&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
+{% endblock %}

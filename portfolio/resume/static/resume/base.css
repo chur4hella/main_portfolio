@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+a{
+    text-decoration: none;
+    color: #909096;
+}
+.menu-button{
+    display: none;
+}
+.link{
+    color: #08fdd8;
+    transition: color .3s;
+}
+.link:hover{
+    color: #019e86;
+}
+.background-text{
+    position: absolute;
+    color: rgba(255,255,255,.05);
+    font-weight: bold;
+    font-size: 300px;
+    z-index: -1;
+}
+.background-text_works{
+    right: -145px;
+    bottom: -200px;
+}
+.background-text_about{
+    left: 20px;
+    bottom: -200px;
+}
+.main{
+    margin: 0;
+    padding-left: 132px;
+    font-family: "Open Sans",sans-serif;
+    background-color: #1d1d1d;
+    color: #fff;
+    box-sizing: border-box;
+}
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 132px;
+    height: 100vh;
+    background-color: #181818;
+}
+.menu-top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+    padding: 30px 0;
+}
+.menu-top__text{
+    color: #909096;
+    font-size: 12px;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+}
+.logo__text{
+    color: #fff;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.menu-nav{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #282828;
+}
+.menu-nav__item{
+    text-align: center;
+    font-size: 14px;
+    padding: 11px 0;
+    border-bottom: 1px solid #282828;
+    transition: color .3s;
+}
+.menu-nav__item:hover{
+    color: #08fdd8;
+}
+.content{
+    position: relative;
+    /*width: 90vw;*/
+}
+.tag,
+.tag-bottom,
+.section-col__title::before,
+.section-col__title::after,
+.section-col__text::after,
+.section-col__text::before,
+.gallery::before,
+.gallery::after,
+.form::before,
+.form::after{
+    position: absolute;
+    font-family: 'La Belle Aurore';
+    font-size: 18px;
+    font-weight: 300;
+    color: #515152;
+}
+.tag-top{
+    top: 30px;
+    left: 30px;
+}
+.tag-top::after{
+    content: '<body>';
+    position: absolute;
+    bottom: -30px;
+    left: 10px;
+}
+.tag-bottom{
+    left: 30px;
+    bottom: 30px;
+}
+.tag-bottom::before{
+    content: '</body>';
+    position: absolute;
+    left: 10px;
+    top: -30px;
+}
+.button{
+    display: block;
+    width: 220px;
+    color: #08fdd8;
+    text-align: center;
+    padding: 10px 0;
+    border: 1px solid #08fdd8;
+    margin-top: 40px;
+    transition: background-color .3s, color .3s;
+}
+.button:hover{
+    color: #000;
+    background-color: #08fdd8;
+}
+@media only screen and (max-width: 1300px){
+    .menu{
+        display: none;
+    }
+    .menu_active{
+        display: block;
+        z-index: 99;
+        width: 100%;
+    }
+    .main{
+        padding: 0;
+    }
+    .menu-button{
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 60px;
+        height: 60px;
+        background-color: rgba(0, 0, 0, .85);
+        z-index: 100;
+    }
+    .menu-button::after,
+    .menu-button::before{
+        position: absolute;
+        content: '';
+        left: 50%;
+        margin-left: -15px;
+        background-color: #fff;
+        width: 30px;
+        height: 4px;
+        transition: transform .3s;
+    }
+    .menu-button::after{
+        top: 35%;
+    }
+    .menu-button::before{
+        bottom: 35%;
+    }
+    .menu-button_active::after{
+        transform: rotate(45deg);
+        top: 50%;
+        margin-top: -2px;
+    }
+    .menu-button_active::before{
+        transform: rotate(-45deg);
+        bottom: 50%;
+        margin-bottom: -2px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .tag-top{
+        top: 10px;
+        left: 10px;
+    }
+    .tag-top::after,
+    .tag-bottom::before{
+        left: 0;
+    }
+    .tag-bottom{
+        left: 10px;
+        bottom: 10px;
+    }
+}

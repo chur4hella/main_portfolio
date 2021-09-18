@@ -1,0 +1,51 @@
+{% extends 'resume/base_detail.html' %}
+{% load static %}
+{% block title %}Обо мне{% endblock %}
+    {% block title_col %}Немного обо мне{% endblock %}
+    {% block text_col %}
+        Я серьезно увлечен веб-разработкой. Мне очень интересно, что скрывается от глаз пользователя и как это
+                работает. В данный момент мое внимание устремлено в сторону Back-end. Но в ходе создания своих приложений,
+                очень часто сталкиваюсь с Front-end разработкой, что также вызывает у меня определенный интерес.<br><br>
+                Хорошо организованный человек с вниманием к деталям. Пытаюсь развиваться во всех сферах своей жизни.
+                Любитель активного отдыха и высокотехнологичных видов спорта таких, как формула 1.<br><br>
+                Интересует весь спектр Back-end разработки. Буду рад работать над интересным проектом с позитивными людьми.
+                Отсутсвие знаний в какой-либо области компенсирую быстрым обучением.
+    {% endblock %}
+    {% block class_right_col %}tags{% endblock %}
+    {% block element_right_col %}
+        <div id="myCanvasContainer">
+                <canvas width="500" height="500" id="myCanvas">
+                    <a href="">Python</a>
+                    <a href="">Django</a>
+                    <a href="">CSS</a>
+                    <a href="">JS</a>
+                    <a href="">HTML</a>
+                    <a href="">Postgresql</a>
+                    <a href="">jQuery</a>
+                    <a href="">JSON</a>
+                    <a href="">Linux</a>
+                    <a href="">Git</a>
+                    <a href="">Photoshop</a>
+                </canvas>
+            </div>
+    {% endblock %}
+{% block scripts %}
+    <script src="{% static 'resume/js/tagcanvas.min.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+  window.onload = function() {
+    try {
+      TagCanvas.Start('myCanvas', '', {
+          textColour: '#08fdd8',
+          minSpeed: .003,
+          initial: [.8, 0.3],
+          maxSpeed: .015,
+          noSelect: true,
+          wheelZoom: false
+      });
+    } catch(e) {
+      // something went wrong, hide the canvas container
+      document.getElementById('myCanvasContainer').style.display = 'none';
+    }
+  };
+</script>
+{% endblock %}

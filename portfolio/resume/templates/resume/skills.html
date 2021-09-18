@@ -1,0 +1,55 @@
+{% extends 'resume/base_detail.html' %}
+{% load static %}
+{% block new_styles %}
+    <link rel="stylesheet" href="{% static 'resume/skills.css' %}">
+{% endblock %}
+{% block title %}Навыки{% endblock %}
+{% block title_col %}Мои навыки{% endblock %}
+{% block text_col %}
+        На данный момент я не имею опыта разработки реального проекта. Все свои навыки я оттачиваю на своем проекте
+    (портфолио), который я разработал для этих целей.<br><br>Мое портфолио - это адаптивный веб-сайт, который
+    состоит из нескольких приложений, разработанных с использованием следующих технологий: Python, Django, JavaScript, Ajax,
+    HTML, CSS, PostgreSQL. Первое приложение - это резюме, т.е. данный сайт. Основная задача этого приложения заключается
+    в представлении информации обо мне и в демонстрации некоторых моих навыков в области Front-end разработки. В остальных
+    приложениях основное внимание сосредоточено на Back-end разработке.<br><br>Для ознакомления со всеми моими
+    приложениями приглашаю Вас посетить страницу <a class="link" href="">мои работы</a>. Мою контактную информацию Вы
+    можете получить в <a class="link" href="">резюме</a> на сайте rabota.by либо просто напишите мне используя
+    <a class="link" href="">данную форму</a>.
+{% endblock %}
+{% block class_right_col %}
+    skills-col
+{% endblock %}
+{% block element_right_col %}
+<div class="skills">
+    <div class="skills-item">
+        <span class="skills-item__title">Python</span>
+        <div class="skills-item__level skills-item__level_python"></div>
+    </div>
+    <div class="skills-item">
+        <span class="skills-item__title">Django</span>
+        <div class="skills-item__level skills-item__level_django"></div>
+    </div>
+    <div class="skills-item">
+        <span class="skills-item__title">JavaScript</span>
+        <div class="skills-item__level skills-item__level_js"></div>
+    </div>
+    <div class="skills-item">
+        <span class="skills-item__title">jQuery</span>
+        <div class="skills-item__level skills-item__level_jquery"></div>
+    </div>
+    <div class="skills-item">
+        <span class="skills-item__title">PostgreSQL</span>
+        <div class="skills-item__level skills-item__level_psql"></div>
+    </div>
+    <div class="skills-item">
+        <span class="skills-item__title">HTML</span>
+        <div class="skills-item__level skills-item__level_html"></div>
+    </div>
+    <div class="skills-item">
+        <span class="skills-item__title">CSS</span>
+        <div class="skills-item__level skills-item__level_css"></div>
+    </div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+.gallery{
+    display: flex;
+    position: relative;
+}
+.gallery::before{
+    content: '<section>';
+    top: -35px;
+    left: 20px;
+}
+.gallery::after{
+    content: '</section>';
+    bottom: -35px;
+    left: 20px;
+}
+.gallery__item{
+    position: relative;
+    width: 25%;
+    padding-bottom: 25%;
+    cursor: pointer;
+}
+.gallery__item::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(81, 81, 82, .6);
+    z-index: 1;
+    transition: background-color .3s;
+}
+.gallery__item:hover::before{
+    background-color: rgba(81, 81, 82, .1);
+}
+.gallery__item::after{
+    display: block;
+    content: '';
+    width: 100%;
+}
+.gallery__item-inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.portfolio{
+    background-color: #a1271f;
+}
+.prices{
+    background-color: #08fdd8;
+}
+.onliner{
+    background-color: deeppink;
+}
+.exchange-rates{
+    background-color: blueviolet;
+}
+.fake-block{
+    height: 135px;
+}
+@media only screen and (max-width: 900px){
+    .gallery{
+        flex-wrap: wrap;
+    }
+    .gallery__item{
+        width: 50%;
+        padding-bottom: 30%;
+    }
+}

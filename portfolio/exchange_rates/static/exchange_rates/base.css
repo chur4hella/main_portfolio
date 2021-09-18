@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+.main{
+    font-family: "Open Sans",sans-serif;
+    margin: 0;
+    background-color: rgba(0, 0, 0, .7);
+    user-select: none;
+}
+.menu-nav{
+    text-align: center;
+    padding-top: 10px;
+}
+.menu-nav__item{
+    position: relative;
+    text-decoration: none;
+    padding: 10px 0;
+    color: #08fdd8;
+    transition: color .3s;
+}
+.menu-nav__item:hover{
+    color: #07d7b7;
+}
+.menu-nav__item::after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -25%;
+    background-color: #08fdd8;
+    transition: all .3s;
+}
+.menu-nav__item:hover::after{
+    background-color: #07d7b7;
+    width: 100%;
+    margin-left: -50%;
+}
+.content{
+    padding-top: 50px;
+}
+.currencies{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.currency{
+    width: 50%;
+    text-align: center;
+    color: rgba(255, 255, 255, .9);
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 60px;
+    text-shadow: 1px 2px 15px rgba(0, 0, 0, .4);
+}
+.currency-name{
+    color: rgba(156, 190, 213, 0.9);
+}
+.currency-count{
+    color: rgba(176, 176, 176, 0.9);
+}
+#myChart{
+    background-color: rgba(222, 222, 222, 0.9);
+    height: 400px;
+}
+@media only screen and (max-width: 1000px){
+    .currency{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 550px){
+    .currency{
+        font-size: 35px;
+        margin-bottom: 35px;
+    }
+}

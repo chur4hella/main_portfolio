@@ -1,0 +1,22 @@
+{% load static %}
+<html lang="RU">
+<head>
+    <link rel="stylesheet" href="{% static 'exchange_rates/base.css' %}">
+    {% block styles %}{% endblock %}
+    {% block head_scripts %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Currency App{% endblock %}</title>
+</head>
+<body class="main">
+<div class="menu">
+    <nav class="menu-nav">
+        <a class="menu-nav__item" href="{% url 'resume:index' %}">Вернуться к резюме</a>
+    </nav>
+</div>
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+{#<script src="{% static 'resume/js/menuButton.js' %}" type="text/javascript"></script>#}
+{% block scripts %}{% endblock %}
+</body>
+</html>

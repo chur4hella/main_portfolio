@@ -1,0 +1,67 @@
+{% extends 'exchange_rates/base.html' %}
+{% load static %}
+{% block head_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+{% endblock head_scripts %}
+{% block content %}
+    <div class="currencies">
+        {% for currency in currencies %}
+        <div class="currency">
+            <span class="currency-count">{{ currency.previousexchangerate_set.last.count }}</span>
+            <span class="currency-name">{{ currency.abbreviation }}</span>
+            <span class="currency-value">{{ currency.previousexchangerate_set.last.price }}</span>
+        </div>
+{% endfor %}
+    </div>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+const colors = ['red', 'blue', 'green', 'purple'];
+var rates = JSON.parse('{{ rates | escapejs }}'), dataset = [], labels = [];
+
+for (var i = 1; i <= rates['USD']['rates'].length; i++){
+    labels.push(String(i));
+}
+for(var curName in rates){
+    dataset.push({
+        label: rates[curName]['count'] + ' ' + curName,
+        data: rates[curName]['rates'],
+        borderColor: colors[dataset.length],
+        backgroundColor: colors[dataset.length],
+    });
+}
+const data = {
+    labels: labels,
+    datasets: dataset
+};
+
+const config = {
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top'
+            },
+            title: {
+                display: true,
+                text: 'График за последние 30 дней'
+            }
+        }
+    }
+};
+        // === include 'setup' then 'config' above ===
+
+  var myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+    </script>
+{% endblock %}
