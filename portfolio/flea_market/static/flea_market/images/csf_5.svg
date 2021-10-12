@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M3,9 L12.2565445,0.66910998 C12.6671436,0.299570742 13.3327179,0.299446106 13.7434555,0.66910998 L23,9 L23,24 L3,24 L3,9 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="20" height="24" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <circle id="path-3" cx="13" cy="7" r="2"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="4" height="4" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="10" y="16" width="6" height="8"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="6" height="8" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/36x36/05" transform="translate(-1.000000, 0.000000)">
+            <use id="Rectangle-41" stroke="#333333" mask="url(#mask-2)" stroke-width="2" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <use id="Oval-10" stroke="#333333" mask="url(#mask-4)" stroke-width="2" fill="#EAEAEA" xlink:href="#path-3"></use>
+            <use id="Rectangle-43" stroke="#333333" mask="url(#mask-6)" stroke-width="2" fill="#EAEAEA" xlink:href="#path-5"></use>
+            <polygon id="Rectangle-44" fill="#333333" transform="translate(2.908296, 9.767507) rotate(48.000000) translate(-2.908296, -9.767507) " points="2.39498063 7.65304946 3.39498063 7.65304946 3.42161091 11.8819655 2.39867907 11.8765118"></polygon>
+            <polygon id="Rectangle-44" fill="#333333" transform="translate(23.114836, 9.767507) scale(-1, 1) rotate(48.000000) translate(-23.114836, -9.767507) " points="22.6015205 7.65304946 23.6015205 7.65304946 23.6281508 11.8819655 22.6052189 11.8765118"></polygon>
+            <rect id="Rectangle-42" fill="#333333" x="1" y="23" width="24" height="1"></rect>
+        </g>
+    </g>
+</svg>

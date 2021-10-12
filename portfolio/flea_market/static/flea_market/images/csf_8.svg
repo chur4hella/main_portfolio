@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="21px" viewBox="0 0 23 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 8</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M23.9532869,8 C23.9841309,7.67016433 24,7.3365086 24,7 C24,2.75385578 20.2511773,0.186445849 16,0.00975803444 L16,0 L15,0 C14.4438648,0 14,0.446615951 14,0.997544646 L14,8.5 L14,8 L23.9532883,8 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10" height="8.5" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M4,7 L24,7 L24,10 C24,11.6568542 22.656688,13 21.0057979,13 L6.99420208,13 C5.34054993,13 4,11.6534829 4,10 L4,7 Z" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="20" height="6" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <path d="M1.65942755,3.13746496 L2.5510783,3.03156262 L2.81249877,5.71513929 C2.83923553,5.98960197 2.63240925,6.24137732 2.36831053,6.27521814 L2.36831053,6.27521814 C2.09625537,6.31007846 1.86015651,6.10813942 1.84191679,5.83820188 L1.65942755,3.13746496 Z" id="path-5"></path>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="1.15540088" height="3.24757459" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <circle id="path-7" cx="14.5" cy="7.5" r="1.5"></circle>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="3" height="3" fill="white">
+            <use xlink:href="#path-7"></use>
+        </mask>
+        <ellipse id="path-9" cx="9.5" cy="18.5" rx="2.5" ry="2.5"></ellipse>
+        <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="5" height="5" fill="white">
+            <use xlink:href="#path-9"></use>
+        </mask>
+        <circle id="path-11" cx="18.5" cy="18.5" r="2.5"></circle>
+        <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="5" height="5" fill="white">
+            <use xlink:href="#path-11"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/36x36/08" transform="translate(-1.000000, 0.000000)">
+            <path d="M6.65384615,11.8846154 L17.3613657,17.6302209" id="Line" stroke="#333333" stroke-linecap="square"></path>
+            <path d="M10.8423227,11.8846154 L21.1719126,17.819796" id="Line" stroke="#333333" stroke-linecap="square" transform="translate(16.007118, 14.852206) scale(-1, 1) translate(-16.007118, -14.852206) "></path>
+            <use id="Combined-Shape" stroke="#333333" mask="url(#mask-2)" stroke-width="2" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <use id="Rectangle-2" stroke="#333333" mask="url(#mask-4)" stroke-width="2" fill="#FFFFFF" xlink:href="#path-3"></use>
+            <rect id="Rectangle-52" fill="#333333" x="4" y="6.30000019" width="1" height="2"></rect>
+            <path d="M3.42412144,3.57587856 C4.37350278,4.20185072 5,5.27776223 5,6.5 L3.99691033,6.37461379 C3.95272707,5.48012337 3.43842072,4.70929491 2.69593142,4.30406858 L3.42412144,3.57587856 Z" id="Combined-Shape" fill="#333333"></path>
+            <use id="Rectangle-26" stroke="#333333" mask="url(#mask-6)" stroke-width="2" transform="translate(2.237128, 4.655350) rotate(44.000000) translate(-2.237128, -4.655350) " xlink:href="#path-5"></use>
+            <path d="M14.5551758,7.46472168 L17.2434082,5.72692871" id="Line" stroke="#333333" stroke-linecap="square"></path>
+            <use id="Oval-4" stroke="#333333" mask="url(#mask-8)" stroke-width="2" fill="#EAEAEA" xlink:href="#path-7"></use>
+            <use id="Oval-3" stroke="#333333" mask="url(#mask-10)" stroke-width="2" fill="#EAEAEA" xlink:href="#path-9"></use>
+            <use id="Oval-3" stroke="#333333" mask="url(#mask-12)" stroke-width="2" fill="#EAEAEA" xlink:href="#path-11"></use>
+        </g>
+    </g>
+</svg>

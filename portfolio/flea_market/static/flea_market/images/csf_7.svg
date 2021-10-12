@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="18px" viewBox="0 0 28 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <ellipse id="path-1" cx="5.03846154" cy="13.5" rx="4.5" ry="4.5"></ellipse>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9" height="9" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <ellipse id="path-3" cx="24.0384615" cy="13.5" rx="4.5" ry="4.5"></ellipse>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9" height="9" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="16.5384615" y="0" width="5" height="1"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="5" height="1" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/36x36/07" transform="translate(-0.538462, 0.000000)">
+            <use id="Oval-26" stroke="#333333" mask="url(#mask-2)" stroke-width="2" fill="#EAEAEA" xlink:href="#path-1"></use>
+            <use id="Oval-26" stroke="#333333" mask="url(#mask-4)" stroke-width="2" fill="#EAEAEA" xlink:href="#path-3"></use>
+            <polyline id="Path-16" stroke="#333333" stroke-linejoin="round" points="4.94532189 13.3180542 10.0984591 6.58319092 12.2884615 13.5 20.7593478 6.17248535 24.1097506 13.7855225"></polyline>
+            <path d="M4.53846154,13.5 L12.3157443,13.5" id="Path-17" stroke="#333333"></path>
+            <path d="M11.5157001,10.9008038 L19.8749484,3.06640625" id="Path-18" stroke="#333333"></path>
+            <path d="M19.0094698,1.80328369 L21.4030856,7.76721191" id="Path-19" stroke="#333333"></path>
+            <use id="Rectangle-39" stroke="#333333" mask="url(#mask-6)" stroke-width="2" xlink:href="#path-5"></use>
+            <path d="M18.8394259,2.38531494 L21.2522677,0.614929199" id="Path-20" stroke="#333333"></path>
+            <polygon id="Path-21" stroke="#333333" points="9.27723576 4.28682298 10.5075777 7.72841703 9.91883733 6.08465107"></polygon>
+            <path d="M7.53846154,4.00204933 C7.53846154,3.44863277 7.98217818,3 8.53826903,3 L12.0407628,3 C12.3156342,3 12.5384615,3.21935585 12.5384615,3.49293317 L12.5384615,3.54140184 C12.5384615,3.81364132 12.3236178,4.08490006 12.0590405,4.14717024 L8.50251183,4.98422513 C7.97008156,5.10953647 7.53846154,4.76366797 7.53846154,4.20907205 L7.53846154,4.00204933 Z" id="Rectangle-50" fill="#333333"></path>
+        </g>
+    </g>
+</svg>

@@ -36,6 +36,7 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 # Application definition
 
 INSTALLED_APPS = [
+    'flea_market',
     'resume',
     'exchange_rates',
     'portfolio',

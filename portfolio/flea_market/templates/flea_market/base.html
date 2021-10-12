@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Барахолка{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'flea_market/base.css' %}">
+    {% block styles %}{% endblock %}
+</head>
+<body class="main">
+<header class="menu">
+<div class="menu-head">
+    <a class="menu-head__back-to-resume" href="{% url 'resume:works' %}">Вернуться к резюме</a>
+    <div class="menu-head__wrap">
+        <h1 class="menu-head__title">{% block head_title %}Барахолка{% endblock %}</h1>
+        <a class="menu-head__add" href="{% url 'flea_market:index' %}">Добавить объявление</a>
+    </div>
+    <input class="menu-head__search" type="search" placeholder="Поиск по всей Барахолке">
+</div>
+<ul class="menu-classifier">
+    {% for item in classifier %}
+    <li class="menu-classifier__item" data-id="{{ forloop.counter }}">
+        <img class="menu-classifier__item-ico" src="{% static 'flea_market/images/csf_'%}{{ forloop.counter }}.svg">
+        <span class="menu-classifier__item-title">
+            {{ item.title }}
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+<div class="menu-categories">
+    {% for csf in classifier %}
+    <div class="menu-categories__category" data-id="{{ forloop.counter }}">
+        <div class="menu-categories__side">
+            <div class="menu-categories__side-item">
+                {% for cat in csf.category_set.all|dictsort:'id' %}
+                    <div class="menu-categories__side-item-title">
+                    {{ cat.title }}
+                    </div>
+                    <div class="menu-categories__dropdown">
+                        {% for sub_cat in cat.category_set.all|dictsort:'id' %}
+                        <a class="menu-categories__dropdown-item" href="">
+                            <div class="menu-categories__dropdown-title">
+                                {{ sub_cat.title }}
+                            </div>
+                            <div class="menu-categories__dropdown-description">
+                                15 объявлений
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</header>
+<div class="content">
+{% block content %}{% endblock %}
+</div>
+</body>
+<script src="{% static 'flea_market/js/menu.js' %}"></script>
+{% block scripts %}{% endblock %}
+</html>
