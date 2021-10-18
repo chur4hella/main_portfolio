@@ -3,6 +3,8 @@
 {% block styles %}
     <link rel="stylesheet" href="{% static 'flea_market/index.css' %}">
 {% endblock %}
+{% block fake-active %}main__fake_active{% endblock %}
+{% block info-active %}menu-head-info__content_active{% endblock %}
 {% block content %}
 <div class="cells">
 {% for category in six_categories %}

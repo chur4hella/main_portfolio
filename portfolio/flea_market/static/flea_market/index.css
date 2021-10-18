@@ -43,4 +43,9 @@
 .cells__cell-count{
     font-weight: bold;
 }
+@media only screen and (max-width: 1000px){
+    .content{
+        display: none;
+    }
+}
 

@@ -11,18 +11,68 @@
     {% block styles %}{% endblock %}
 </head>
 <body class="main">
+<div class="main__fake {% block fake-active %}{% endblock %}"></div>
 <header class="menu">
 <div class="menu-head">
-    <a class="menu-head__back-to-resume" href="{% url 'resume:works' %}">Вернуться к резюме</a>
+    <div class="menu-head-info">
+        <div class="menu-head-info__button">
+            <span class="menu-head-info__button-text">i</span>
+        </div>
+        <div class="menu-head-info__content {% block info-active %}{% endblock %}">
+            <div class="menu-head-info__content-close"></div>
+            <h3 class="menu-head-info__title">Информация о приложении</h3>
+            <p class="menu-head-info__text">
+                Данное приложение - это рабочая копия барахолки на onliner.by за исключением некоторых функций, с
+                адаптивным дизайном и оптимизированным списком категорий.
+            </p>
+            <h4>Стек технологий приложения:</h4>
+            <ul class="menu-head-info__list">
+                <li class="menu-head-info__item">Python</li>
+                <li class="menu-head-info__item">Django</li>
+                <li class="menu-head-info__item">Postgresql</li>
+                <li class="menu-head-info__item">HTML</li>
+                <li class="menu-head-info__item">CSS</li>
+                <li class="menu-head-info__item">JavaScript</li>
+            </ul>
+            <h4>Реализованные функции:</h4>
+            <ul class="menu-head-info__list">
+                <li class="menu-head-info__item">Подача объявлений</li>
+                <li class="menu-head-info__item">Простой личный кабинет</li>
+                <li class="menu-head-info__item">Поднятие обявления</li>
+                <li class="menu-head-info__item">Комментарии</li>
+                <li class="menu-head-info__item">Личные сообщения</li>
+                <li class="menu-head-info__item">Поиск</li>
+                <li class="menu-head-info__item">Фильтр</li>
+                <li class="menu-head-info__item">Сортировка</li>
+                <li class="menu-head-info__item">Закладки</li>
+            </ul>
+        </div>
+    </div>
+    <a class="menu-head__return-resume" href="{% url 'resume:works' %}">Вернуться к резюме</a>
     <div class="menu-head__wrap">
         <h1 class="menu-head__title">{% block head_title %}Барахолка{% endblock %}</h1>
-        <a class="menu-head__add" href="{% url 'flea_market:index' %}">Добавить объявление</a>
+        <a class="menu-head__add" href="{% url 'flea_market:index' %}">
+            <span class="menu-head__add-text">Добавить объявление</span>
+        </a>
     </div>
-    <input class="menu-head__search" type="search" placeholder="Поиск по всей Барахолке">
+    <div class="menu-head__wrap">
+        <input class="menu-head__search" type="search" placeholder="Поиск по всей Барахолке">
+        <div class="menu-head__actions">
+            <a class="menu-head__actions-link" href="">
+                <span class="menu-head__actions-link-text">Мои объявления</span>
+                <span class="menu-head__actions-link-notice">9+</span>
+            </a>
+            <a class="menu-head__actions-link" href="">
+                <span class="menu-head__actions-link-text">Я обсуждаю</span>
+                <span class="menu-head__actions-link-notice">9+</span>
+            </a>
+        </div>
+    </div>
 </div>
 <ul class="menu-classifier">
     {% for item in classifier %}
     <li class="menu-classifier__item" data-id="{{ forloop.counter }}">
+        <span class="menu-classifier__item-return">назад</span>
         <img class="menu-classifier__item-ico" src="{% static 'flea_market/images/csf_'%}{{ forloop.counter }}.svg">
         <span class="menu-classifier__item-title">
             {{ item.title }}
@@ -37,7 +87,8 @@
             <div class="menu-categories__side-item">
                 {% for cat in csf.category_set.all|dictsort:'id' %}
                     <div class="menu-categories__side-item-title">
-                    {{ cat.title }}
+                        <span class="menu-categories__item-return">назад</span>
+                        <span class="menu-categories__side-item-text">{{ cat.title }}</span>
                     </div>
                     <div class="menu-categories__dropdown">
                         {% for sub_cat in cat.category_set.all|dictsort:'id' %}
