@@ -1,0 +1,105 @@
+{% extends 'flea_market/base.html' %}
+{% load static %}
+{% load flea_market_extras %}
+{% block title %}{{ current_category.title }}{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'flea_market/products.css' %}">
+{% endblock %}
+{% block head_title %}{{ current_category.title }}{% endblock %}
+{% block menu-activation-button %}
+    <div class="menu__activation-button">Все разделы</div>
+{% endblock %}
+{% block content %}
+    <div class="content-col content-col_left">
+        <div class="button-display-form">Фильтр</div>
+        <form class="form" name="filter" method="get" action="" autocomplete="off" enctype="multipart/form-data">
+            <div class="form__row">
+                <label>Цена, р:</label>
+                <div class="form__row-wrap">
+                    <input type="number" name="price_from" placeholder="от">
+                    <input type="number" name="price_to" placeholder="до">
+                </div>
+            </div>
+            <div class="form__row">
+                <label for="city">Город:</label>
+                <input id="city" name="city" type="text" placeholder="Напр. Брест">
+            </div>
+            {% for field in form %}
+                <div class="form__row">
+                    {{ field.label_tag }} {{ field }}
+                </div>
+            {% endfor %}
+        </form>
+    </div>
+    <div class="content-col content-col_right">
+    <div class="content-order">
+        <div class="content-order__selected"></div>
+        <ul class="content-order-dropdown">
+            <li class="content-order-dropdown__item content-order-dropdown__item_active" data-order="date_creation:asc">Новые</li>
+            <li class="content-order-dropdown__item" data-order="date_creation:desc">Старые</li>
+            <li class="content-order-dropdown__item" data-order="price:desc">Дешевые</li>
+            <li class="content-order-dropdown__item" data-order="price:asc">Дорогие</li>
+        </ul>
+    </div>
+    <div class="content-col-items">
+        {% for ad in page_obj %}
+            <div class="content-col-item">
+            {% if user.is_authenticated %}
+                {% csrf_token %}
+                <div class="content-col-item__bookmark" data-id-product="{{ ad.id }}"
+                     data-bookmark-saved="{{ user.bookmark_set.all|check_bookmark:ad }}" ></div>
+            {% endif %}
+                <a class="content-col-item__image-wrap" href="{% url 'flea_market:product' ad.id %}">
+                <span class="content-col-item__type content-col-item__type_{{ ad.type_ad }}"></span>
+                    {% if ad.image_set.all %}
+                        <img src="{{ ad.image_set.first.photo.url }}" class="content-col-item__image">
+                    {% else %}
+                        <div class="content-col-item__image content-col-item__image_no-image"></div>
+                    {% endif %}
+                </a>
+                <div class="content-col-item__details">
+                    <a class="content-col-item__title" href="{% url 'flea_market:product' ad.id %}">{{ ad.title }}</a>
+                    <p class="content-col-item__short-description">{{ ad.short_description }}</p>
+                    <p class="content-col-item__other-info">
+                        <a class="content-col-item__user" href="{% url 'flea_market:other_user_products' ad.user.id %}">{{ ad.user.username }}</a>
+                        <span class="content-col-item__last-update">up: {{ ad.date_up }}</span>
+                    </p>
+                    <p class="content-col-item__city">{{ ad.city.title }}</p>
+                </div>
+                <div class="content-col-item__price">
+                    <div class="content-col-item__price-value">{{ ad.price }} р.</div>
+                    {% if ad.bargain %}
+                        <span class="content-col-item__price-bargain">Торг</span>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    {% if page_obj %}
+    <div class="pagination">
+        <span class="pagination__steps">
+            {% if page_obj.has_previous %}
+                <a class="pagination__steps-link pagination__steps-link_first" href="?page=1">&laquo; Первая</a>
+                <a class="pagination__steps-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+            {% endif %}
+
+            <span class="pagination__current">
+                {{ page_obj.number }} страница из {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a class="pagination__steps-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                <a class="pagination__steps-link pagination__steps-link_last" href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    {% else %}
+        <div class="pagination">Ничего не найдено</div>
+    {% endif %}
+    </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'flea_market/js/menuOtherPages.js' %}"></script>
+{#    <script src="{% static 'flea_market/js/filterItems.js' %}"></script>#}
+    <script src="{% static 'flea_market/js/products.js' %}"></script>
+{% endblock %}

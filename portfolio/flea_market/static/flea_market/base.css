@@ -10,7 +10,7 @@ body{
     font-family: "Open Sans";
     margin: 0;
 }
-h3, h4, p{
+h1, h3, h4, p{
     margin: 0;
 }
 a{
@@ -19,6 +19,7 @@ a{
 }
 .main{
     position: relative;
+    max-width: 1312px;
 }
 .main__fake{
     position: absolute;
@@ -152,23 +153,146 @@ a{
     background-color: #5a9a00;
 }
 .menu-head__search{
+    width: 50%;
+}
+.menu-head__search_active{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    box-shadow: 1px 1px 15px 1px #202020;
+    background-color: white;
+    z-index: 10;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+.menu-head__search_active .menu-head__search-field{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.menu-head__search-field{
+    width: 100%;
     font-size: 15px;
     padding: 10px;
+    box-sizing: border-box;
+}
+.menu-head__search-item{
+    display: flex;
+    font-size: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: background-color .3s;
+}
+.menu-head__search-item:hover{
+    background-color: #eeeeee;
+}
+.menu-head__search-image-wrap{
+    position: relative;
+    width: 20%;
+    min-width: 120px;
+    height: 150px;
+}
+.menu-head__search-item-type{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.menu-head__search-item-type::after{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 10px;
+    color: white;
+    border-radius: 10px;
+    text-transform: uppercase;
+    padding: 3px 6px;
+    box-shadow: 1px 1px 15px 1px #666666;
+}
+.menu-head__search-item-type_buy::after{
+    content: 'Куплю';
+    background-color: green;
+}
+.menu-head__search-item-type_sell::after{
+    content: 'Продам';
+    background-color: red;
+}
+.menu-head__search-item-type_exchange::after{
+    content: 'Обмен';
+    background-color: blueviolet;
+}
+.menu-head__search-item-type_service::after{
+    content: 'Услуга';
+    background-color: blue;
+}
+.menu-head__search-item-type_rent::after{
+    content: 'Аренда';
+    background-color: #636363;
+}
+.menu-head__search-item-image{
+    width: 100%;
+    height: 100%;
+}
+.menu-head__search-item-details{
     width: 60%;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+.menu-head__search-item-description{
+    color: #333;
+    margin-top: 10px;
+}
+.menu-head__search-item-price{
+    width: 20%;
+    margin-left: auto;
+    text-align: end;
+}
+.menu-head__search-item-price-value{
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.menu-head__search-item-image_no-image{
+    position: relative;
+    background-color: #e6e6e6;
+}
+.menu-head__search-item-image_no-image::after{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    content: 'Нет фото';
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    color: #666;
+}
+.menu-head__search-item-price-bargain{
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    background-color: green;
+    text-transform: uppercase;
 }
 .menu-head__wrap{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 0;
     width: 100%;
 }
 .menu-head__actions-link{
     padding: 10px 0;
     font-size: 14px;
     color: #1a578c;
-}
-.menu-head__actions-link:first-child{
     margin-right: 20px;
+}
+.menu-head__actions-link:last-child{
+    margin: 0;
 }
 .menu-head__actions-link-text{
     margin-right: 5px;
@@ -348,8 +472,15 @@ a{
     .menu-head__add-text{
         display: none;
     }
+    .menu-head__wrap:nth-child(4){
+        flex-direction: column;
+    }
     .menu-head__search{
-        width: 50%;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .menu-head__search-item-description{
+        display: none;
     }
     .menu-classifier{
         flex-direction: column;
@@ -407,7 +538,7 @@ a{
         top: 50%;
         margin-top: -5px;
         border: 10px solid transparent;
-        border-left: 10px solid #1a578c;
+        border-left-color: #1a578c;
     }
     .menu-categories__side-item-title_active{
         display: flex;
@@ -431,27 +562,61 @@ a{
         font-size: 12px;
     }
 }
+@media only screen and (max-width: 850px){
+    .menu-head__search-item-details{
+        width: 55%;
+    }
+    .menu-head__search-image-wrap{
+        width: 25%;
+    }
+}
 @media only screen and (max-width: 700px){
+    .menu-head__search-image-wrap{
+        height: 120px;
+        width: 25%;
+    }
+    .menu-head__search-item-price{
+        font-size: 13px;
+    }
     .menu-head-info__content{
         padding: 45px 15px 10px 15px;
         left: 5vw;
         width: 90vw;
     }
-    .menu-head__wrap:nth-child(4){
-        flex-direction: column;
+}
+@media only screen and (max-width: 600px){
+    .menu-head__search-item{
+        flex-wrap: wrap;
+        padding: 25px;
     }
-    .menu-head__search{
+    .menu-head__search-image-wrap{
         width: 100%;
-        margin-bottom: 25px;
+        height: 50vw;
+    }
+    .menu-head__search-item-details{
+        width: 100%;
+        padding: 0;
+        margin: 10px 0;
+    }
+    .menu-head__search-item-price{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .menu-head__search-item-price-value{
+        margin: 0 10px 0 0;
     }
 }
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 500px){
+    .menu-head__wrap{
+        align-items: flex-start;
+    }
+    .menu-head__search-item{
+        padding: 25px 10px;
+    }
     .menu-head__actions-link{
         display: block;
-        text-align: center;
-    }
-    .menu-head__actions-link:first-child{
-        margin: 0 0 15px 0;
+        margin: 0;
     }
     .menu-categories__side-item-title{
         padding: 20px 10px;

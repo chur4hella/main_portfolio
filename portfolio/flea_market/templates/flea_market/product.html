@@ -1,0 +1,54 @@
+{% extends 'flea_market/base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'flea_market/product.css' %}">
+{% endblock %}
+{% block menu-activation-button %}
+    <div class="menu__activation-button">Все разделы</div>
+{% endblock %}
+{% block content %}
+    <div class="product">
+        <div class="product__contact">
+            <a class="product__contact-tel" href="tel:">+375339999999</a>
+            <p class="product__contact-username">user</p>
+        </div>
+        <h1 class="product__title">{{ object.title }}</h1>
+        <div class="product__images-wrap">
+            <div class="product__type product__type_{{ object.type_ad }}"></div>
+            <div class="product__images">
+                {% for photo in object.image_set.all %}
+                {% if forloop.counter == 1 %}
+                    <img src="{{ photo.photo.url }}" class="product__image product__image_display">
+                {% else %}
+                    <img src="{{ photo.photo.url }}" class="product__image">
+                {% endif %}
+            {% empty %}
+                <div class="product__image_no-photo"></div>
+            {% endfor %}
+            </div>
+            <div class="product__image-arrow product__image-arrow-left"></div>
+            <div class="product__image-arrow product__image-arrow-right"></div>
+        </div>
+        <h3 class="product__description-title">Описание</h3>
+        <div class="product__description">
+            {{ object.description }}
+        </div>
+        <div class="product__price">
+            <div class="product__price-value">{{ object.price }} р</div>
+            {% if object.bargain %}
+                <div class="product__bargain">Торг</div>
+            {% endif %}
+        </div>
+        <div class="product__city">{{ object.city.title }}</div>
+        <div class="product__contact-button">Контакты</div>
+        <div class="product__bottom">
+            <div class="product__date">{{ object.date_creation }}</div>
+            <a href="" class="product__user">user</a>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'flea_market/js/menuOtherPages.js' %}"></script>
+    <script src="{% static 'flea_market/js/slider.js' %}"></script>
+    <script src="{% static 'flea_market/js/showContact.js' %}"></script>
+{% endblock %}

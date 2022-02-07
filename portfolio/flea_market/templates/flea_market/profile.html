@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'flea_market/profile.css' %}">
+    <title>Профиль</title>
+</head>
+<body class="main">
+<div class="main-content">
+    <header class="menu">
+        <a class="menu__link" href="{% url 'flea_market:index' %}">Главная</a>
+        <a class="menu__link menu__link_right" href="{% url 'flea_market:my_products' %}">Мои объявления</a>
+    </header>
+    <form class="form" name="personal-data"
+          method="post" action="{% url 'flea_market:profile' %}" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 class="form__title">Персональные данные</h3>
+        <label for="{{ form.first_name.id_for_label }}">Имя</label>
+        {{ form.first_name }}
+        <label for="{{ form.email.id_for_label }}">Почта</label>
+        {{ form.email }}
+        <input class="form__button" type="submit" value="Сохранить">
+    </form>
+    <form class="form" name="change-password"
+          method="post" action="{% url 'flea_market:password_change' %}" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 class="form__title">Смена пароля</h3>
+        <label for="{{ password_change_form.old_password.id_for_label }}">Старый пароль</label>
+        {{ password_change_form.old_password }}
+        <label for="{{ password_change_form.new_password1.id_for_label }}">Новый пароль</label>
+        {{ password_change_form.new_password1 }}
+        <ul class="form__help">
+            <li content="form__help-item">Ваш пароль не должен быть слишком похож на другую личную информацию</li>
+            <li content="form__help-item">Ваш пароль должен содержать не менее 8 символов</li>
+            <li content="form__help-item">Ваш пароль не может быть широко используемым паролем.</li>
+            <li content="form__help-item">Ваш пароль не может быть полностью числовым.</li>
+        </ul>
+        <label for="{{ password_change_form.new_password2.id_for_label }}">Новый пароль снова</label>
+        {{ password_change_form.new_password2 }}
+        <input class="form__button" type="submit" value="Изменить пароль">
+    </form>
+</div>
+</body>
+</html>

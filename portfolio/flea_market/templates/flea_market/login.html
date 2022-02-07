@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'flea_market/registration.css' %}">
+    <title>{% block title %}Вход{% endblock %}</title>
+</head>
+<body class="main">
+<form class="form" method="post" {% block action %} action="{% url 'flea_market:login' %}" {% endblock %} autocomplete="off">
+{% csrf_token %}
+    <h2 class="form__title">{% block form_title %}Вход{% endblock %}</h2>
+    <label for="{{ form.username.id_for_label }}">Логин</label>
+    {{ form.username }}
+    <label for="{{ form.password.id_for_label }}">Пароль</label>
+    {{ form.password }}
+    {% block other_fields %}{% endblock %}
+    <input class="form__button" type="submit" value="{% block button_value %}Войти{% endblock %}">
+    {% block link %}
+        <a class="form__link" href="{% url 'flea_market:signup' %}">Регистрация</a>
+    {% endblock %}
+    {{ form.errors }}
+</form>
+</body>
+<script>
+    if(document.location.search){
+        (document.querySelector('.form__link')).href += document.location.search;
+        (document.querySelector('.form')).action += document.location.search;
+    }
+</script>
+</html>
+
+

@@ -1,0 +1,65 @@
+{% extends 'flea_market/base.html' %}
+{% load static %}
+{% block title %}Мои закладки{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'flea_market/products.css' %}">
+{% endblock %}
+{% block head_title %}Мои закладки{% endblock %}
+{% block menu-activation-button %}
+    <div class="menu__activation-button">Все разделы</div>
+{% endblock %}
+{% block content %}
+    <div class="content-col content-col_right">
+        <div class="content-col-items">
+        {% for bookmark in page_obj %}
+            <div class="content-col-item">
+                <a class="content-col-item__image-wrap" href="{% url 'flea_market:product' bookmark.ad.id %}">
+                <span class="content-col-item__type content-col-item__type_{{ ad.type_ad }}"></span>
+                    {% if bookmark.ad.image_set.all %}
+                        <img src="{{ bookmark.ad.image_set.first.photo.url }}" class="content-col-item__image">
+                    {% else %}
+                        <div class="content-col-item__image content-col-item__image_no-image"></div>
+                    {% endif %}
+                </a>
+                <div class="content-col-item__details">
+                    <a class="content-col-item__title" href="{% url 'flea_market:product' bookmark.ad.id %}">{{ bookmark.ad.title }}</a>
+                    <p class="content-col-item__short-description">{{ bookmark.ad.short_description }}</p>
+                    <p class="content-col-item__other-info">
+                        <a class="content-col-item__user" href="{% url 'flea_market:other_user_products' bookmark.ad.user.id %}">{{ bookmark.ad.user.username }}</a>
+                        <span class="content-col-item__last-update">up: {{ bookmark.ad.date_up }}</span>
+                    </p>
+                    <p class="content-col-item__city">{{ bookmark.ad.city.title }}</p>
+                </div>
+                <div class="content-col-item__price">
+                    <div class="content-col-item__price-value">{{ bookmark.ad.price }} р.</div>
+                    {% if bookmark.ad.bargain %}
+                        <span class="content-col-item__price-bargain">Торг</span>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    {% if page_obj %}
+    <div class="pagination">
+        <span class="pagination__steps">
+            {% if page_obj.has_previous %}
+                <a class="pagination__steps-link pagination__steps-link_first" href="?page=1">&laquo; Первая</a>
+                <a class="pagination__steps-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+            {% endif %}
+
+            <span class="pagination__current">
+                {{ page_obj.number }} страница из {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a class="pagination__steps-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                <a class="pagination__steps-link pagination__steps-link_last" href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    {% else %}
+        <div class="pagination">Ничего не найдено</div>
+    {% endif %}
+    </div>
+    </div>
+    <div class="heart"></div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'flea_market/registration.css' %}">
+    <title>Регистрация</title>
+</head>
+<body class="main">
+<form class="form" name="login" method="post" action="{% url 'flea_market:login' %}" autocomplete="off" enctype="multipart/form-data">
+    <h2 class="form__title">Вход</h2>
+    <label for="{{ form.username.id_for_label }}">Логин</label>
+    {{ form.username }}
+    <label for="{{ form.password.id_for_label }}">Пароль</label>
+    {{ form.password }}
+    <input class="form__button" type="submit" value="Войти">
+    <a class="form__link" href="">Регистрация</a>
+</form>
+</body>
+</html>
+
+

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+.main{
+    margin: 0;
+    padding-top: 20px;
+    background-color: #eeeeee;
+}
+.main-content{
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+}
+.menu__link{
+    position: relative;
+    color: #518c00;
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+.menu__link_right{
+    color: #1a578c;
+}
+.menu__link::after{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    width: 50%;
+    height: 2px;
+    left: 25%;
+    background-color: #518c00;
+    transition: all .3s;
+}
+.menu__link_right::after{
+    background-color: #1a578c;
+}
+.menu__link:hover::after{
+    left: 0;
+    width: 100%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+label{
+    margin-bottom: 5px;
+}
+input{
+    padding: 6px 8px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+.form__button {
+    background-color: #68b300;
+    cursor: pointer;
+    transition: all .3s;
+    border: none;
+    color: white;
+    font-size: 17px;
+    border-radius: 4px;
+}
+.form__button:hover{
+    background-color: #5a9a00;
+}
+.form__help{
+    list-style: none;
+    padding: 0;
+    color: #1a578c;
+    font-size: 14px;
+}
+.form__help-item{
+    display: block;
+    padding: 5px;
+}
+.errorlist{
+    color: red;
+    font-size: 14px;
+}
+@media only screen and (max-width: 400px){
+    .main{
+        padding: 0;
+    }
+    .main-content{
+        padding: 10px;
+    }
+}

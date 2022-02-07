@@ -12,7 +12,7 @@
 <img src="{% static 'flea_market/images/cat' %}{{ forloop.counter }}.jpg" class="cells__cell-img">
     <div class="cells__cell-info">
         <h3 class="cells__cell-title">{{ category.title }}</h3>
-        <p class="cells__cell-count">15 объявлений</p>
+        <p class="cells__cell-count">{{ category.ad_set.count }} объявлений</p>
     </div>
 </a>
 {% endfor %}

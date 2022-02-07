@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'flea_market/add-product.css' %}">
+    <title>Добавить объявление</title>
+</head>
+<body class="main">
+
+<form class="form" name="addAd" method="post" action="{% url 'flea_market:add_product' %}" autocomplete="off" enctype="multipart/form-data">
+{% csrf_token %}
+<h1 class="form__title">Новое объявление</h1>
+<div class="form__row">
+    <label>Категория</label>
+    <select class="category" name="category">
+        {%for category in categories %}
+            <optgroup class="category__item" label="{{ category.title }}">
+                {% for sub_category in category.category_set.all|dictsort:'id' %}
+                    <option  class="category__subitem" value="{{ sub_category.id }}">{{ sub_category.title }}</option>
+                {% endfor %}
+            </optgroup>
+        {% endfor %}
+    </select>
+</div>
+<div class="form__row">
+    <label for="city">Город</label>
+    <input class="form__row-city" id="city" name="city" type="text" required  placeholder="Например: Брест">
+    <ul class="form__row-help"></ul>
+</div>
+<div class="form__row">
+    {{ image_form }}
+</div>
+    {% for field in form %}
+        <div class="form__row">
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+<input class="form__button" type="submit" value="Отправить">
+</form>
+</body>
+<script src="{% static 'flea_market/js/findAndSelectCity.js' %}"></script>
+<script src="{% static 'flea_market/js/imageInputStyle.js' %}"></script>
+<script src="{% static 'flea_market/js/selectTypeAd.js' %}"></script>
+</html>

@@ -139,3 +139,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Redis conf
 CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
 CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
+
+#Media files
+# MEDIA_ROOT = '/home/stalin/main_portfolio/portfolio/portfolio/media/flea_market'
+MEDIA_ROOT = f'{BASE_DIR}/media/'
+MEDIA_URL = '/media/'
+
+# Auth
+LOGIN_URL = '/flea_market/login'
+LOGIN_REDIRECT_URL = '/flea_market/profile'
+LOGOUT_REDIRECT_URL = '/flea_market/'

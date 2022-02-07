@@ -1,6 +1,6 @@
 let main = document.querySelector('.main'), mainFake = document.querySelector('.main__fake'),
     classifier = main.querySelectorAll('.menu-classifier__item'), infoButton = main.querySelector('.menu-head-info__button'),
-    categories = main.querySelectorAll('.menu-categories__category'), content = main.querySelector('.content'),
+    categories = main.querySelectorAll('.menu-categories__category'),
     menuHead = main.querySelector('.menu-head'), info = main.querySelector('.menu-head-info__content'),
     buttonClose = main.querySelector('.menu-head-info__content-close');
 
@@ -27,10 +27,8 @@ classifier.forEach(function (element) {
         item.classList.toggle('menu-classifier__item_active');
         category.classList.toggle('menu-categories__category_active');
         item.classList.remove('menu-classifier__item_inactive');
-        content.classList.add('content_inactive');
 
         if (!item.classList.contains('menu-classifier__item_active')){
-            content.classList.remove('content_inactive');
             classifier.forEach(function (i) {
                 i.classList.remove('menu-classifier__item_inactive');
             });

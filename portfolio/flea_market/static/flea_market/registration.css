@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.main{
+    background-color: #f3f3f3;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    padding: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: white;
+}
+.form__title{
+    text-align: center;
+}
+.form__title, input{
+    margin: 0 0 12px 0;
+}
+label{
+    margin-bottom: 5px;
+}
+input{
+    padding: 5px;
+}
+.form__button{
+    background-color: #68b300;
+    cursor: pointer;
+    transition: all .3s;
+    border: none;
+    color: white;
+    font-size: 17px;
+    border-radius: 4px;
+}
+.form__button:hover{
+    background-color: #5a9a00;
+}
+.form__link{
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+.form__link:hover{
+    text-decoration: underline;
+}
+@media only screen and (max-width: 500px){
+    .form{
+        padding: 10px;
+    }
+    .form__title{
+        font-size: 20px;
+    }
+}
